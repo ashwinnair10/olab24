@@ -2,34 +2,48 @@ package oldshelf;
 
 public class Comic extends Book {
 
-	/* TODO: Add most strict modifiers here*/ String Title;
+	/* DONE: Add most strict modifiers here*/ 
+	private final String Title;
 
-	// TODO: Warning to be removed.
+	// DONE: Warning to be removed.
 	private final int ageOfMainCharacter;
 
-	// TODO Correct the error
-	public Comic() {
+	// DONE Correct the error
+	public Comic(String title,int age) {
+		Title=title;
+		ageOfMainCharacter=age;
 	}
 	
-	// TODO : create a getter if required.
-	
-	// TODO: Create a setter if required
+	// DONE : create a getter if required.
+	public String getTitle(){
+		return Title;
+	}
+	public int getAgeOfMainCharacter(){
+		return ageOfMainCharacter;
+	}
+	// DONE: Create a setter if required
 
-	// TODO: write a toString method
+	// DONE: write a toString method
 	@Override
 	public String toString() {
-		return null;
+		return "Comic: "+Title+" Age of Main character: "+ageOfMainCharacter;
 	}
 
-	// TODO: Bonus: 
+	// DONE: Bonus: 
 	@Override
 	public int hashCode() {
-		// TODO: Fill up an arbitrary hash method that takes into account only the age of main characted and the Strign title
+		// DONE: Fill up an arbitrary hash method that takes into account only the age of main characted and the Strign title
+		return (ageOfMainCharacter+Title.length()+69)%100;
 	}
 	
-	// TODO: Bonus: 
+	// DONE: Bonus: 
 	@Override
 	public boolean equals(Object o) {
-		// TODO: Based on the information about hashCode write the equals method.
+		// DONE: Based on the information about hashCode write the equals method.
+		if(o instanceof Comic c){
+			if(c.hashCode()==this.hashCode())
+			return true;
+		}
+		return false;
 	}
 }
