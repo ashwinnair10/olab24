@@ -6,20 +6,31 @@ public class TextBook extends Book {
 	private final String subject;
 	
 	// DONE: Change the constructor if required? Correct any errors
-	public TextBook(String subject) {
+	TextBook(String subject) {
 		this.subject=subject;
 	}
 
 	// DONE : create a getter if required.
-	public String getSubject(){
+	public String subject(){
 		return subject;
 	}
 	// DONE: Create a setter if required
 	
 	// DONE: write a toString method
 	@Override
-	public String toString() {
-		return "TextBook : "+subject;
+	public final String toString() {
+		return "TextBook: "+subject;
 	}
-
+	@Override
+	public final int hashCode(){
+		return subject.length();
+	}
+	@Override
+	public final boolean equals(Object o){
+		if(o instanceof TextBook t){
+			if(t.hashCode()==this.hashCode())
+			return true;
+		}
+		return false;
+	}
 }
