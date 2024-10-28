@@ -26,10 +26,10 @@ public class NewSelection {
 		// }
 		// return null;
 		return switch(o){
-			case Comic c->c.Title();
-			case Fiction f->f.name();
-			case TextBook t->t.subject();
-			case Object obj when obj instanceof TestClass tc->tc.s();
+			case Comic(String Title,int ageOfMainCharacter)->Title;
+			case Fiction(String name,FictionType type)->name;
+			case TextBook(String subject)->subject;
+			case Object obj when obj instanceof TestClass(String s)->s;
 			default->null;
 		};
 	}
